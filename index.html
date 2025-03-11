@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance Energia Solar - Inauguração em Canindé</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #ffc107;
+            --accent-color: #e74c3c;
+            --light-blue: #e6f2ff;
+            --dark-blue: #003366;
+            --white: #ffffff;
+            --gray: #f5f5f5;
+            --dark-gray: #666666;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--white);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--dark-blue));
+            color: var(--white);
+            padding: 20px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .logo-container {
+            margin-bottom: 20px;
+            background-color: #231F20;
+            padding: 15px;
+            border-radius: 10px;
+            max-width: 300px;
+        }
+
+        .logo {
+            width: 100%;
+            height: auto;
+        }
+
+        .header-text {
+            text-align: center;
+        }
+
+        .header-text h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        .header-text h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 25px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: var(--secondary-color);
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 50px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 10px 0;
+            font-size: 1.1rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            background-color: #ffce3a;
+        }
+
+        .btn-danger {
+            background-color: var(--accent-color);
+            color: var(--white);
+        }
+
+        .btn-danger:hover {
+            background-color: #d62c1a;
+        }
+
+        /* Promotion Banner */
+        .promotion-banner {
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 15px 0;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+
+        /* Benefits Section */
+        .benefits {
+            padding: 60px 0;
+            background-color: var(--gray);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+            font-size: 2.2rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            margin: 15px auto;
+        }
+
+        .benefits-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .benefit-card {
+            flex: 1 1 250px;
+            max-width: 350px;
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .benefit-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--dark-blue);
+        }
+
+        .benefit-description {
+            color: var(--dark-gray);
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 60px 0;
+            background: linear-gradient(135deg, var(--light-blue), #f0f8ff);
+        }
+
+        .pricing-table {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .price-card {
+            flex: 1 1 300px;
+            max-width: 350px;
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #e1e1e1;
+            transition: all 0.3s ease;
+        }
+
+        .price-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .popular {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 5px 15px;
+            font-size: 0.8rem;
+            transform: rotate(45deg) translate(20%, -120%);
+            width: 150px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .price-title {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: var(--dark-gray);
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .new-price {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .price-features {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+
+        .price-features li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .price-features li:before {
+            content: "✓";
+            color: #28a745;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Urgency Section */
+        .urgency {
+            padding: 40px 0;
+            background-color: var(--accent-color);
+            color: var (--white);
+            text-align: center;
+        }
+
+        .urgency-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .countdown {
+            margin: 20px 0;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .countdown-timer {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .countdown-unit {
+            background-color: var(--dark-blue);
+            padding: 10px 15px;
+            border-radius: 5px;
+            min-width: 80px;
+        }
+
+        .countdown-number {
+            font-size: 2rem;
+            display: block;
+        }
+
+        .countdown-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 60px 0;
+            background-color: var(--white);
+        }
+
+        .testimonials-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            flex: 1 1 300px;
+            max-width: 400px;
+            background-color: var(--light-blue);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: "";
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 5rem;
+            color: rgba(0, 86, 179, 0.1);
+            font-family: Georgia, serif;
+        }
+
+        .testimonial-text {
+            margin-bottom: 20px;
+            font-style: italic;
+            z-index: 1;
+            position: relative;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+
+        .author-info h4 {
+            margin-bottom: 5px;
+            color: var(--primary-color);
+        }
+
+        .author-location {
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Store Info Section */
+        .store-info {
+            padding: 60px 0;
+            background-color: var(--gray);
+        }
+
+        .info-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .info-text {
+            flex: 1 1 400px;
+            max-width: 600px;
+        }
+
+        .info-image {
+            flex: 1 1 400px;
+            max-width: 500px;
+        }
+
+        .info-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-item {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .info-icon {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-right: 15px;
+            min-width: 25px;
+        }
+
+        .info-details h3 {
+            margin-bottom: 5px;
+            color: var(--dark-blue);
+        }
+
+        .info-details p {
+            color: var(--dark-gray);
+        }
+
+
+        /* Footer Styles */
+        footer {
+            background-color: var(--dark-blue);
+            color: var(--white);
+            padding: 40px 0 20px;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .footer-column {
+            flex: 1 1 250px;
+        }
+
+        .footer-title {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* Float WhatsApp Button */
+        .float-whatsapp {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: var(--white);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            font-size: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .float-whatsapp:hover {
+            transform: scale(1.1);
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .header-text h1 {
+                font-size: 1.8rem;
+            }
+
+            .header-text h2 {
+                font-size: 1.2rem;
+            }
+
+            .btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .countdown-unit {
+                min-width: 60px;
+                padding: 8px 10px;
+            }
+
+            .countdown-number {
+                font-size: 1.5rem;
+            }
+
+            .countdown-label {
+                font-size: 0.7rem;
+            }
+
+            .pricing-table {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .discount-tag {
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-weight: bold;
+            display: inline-block;
+            margin: 10px 0;
+            font-size: 0.9rem;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Ajuste para compensar o header fixo, se necessário */
+        section {
+            scroll-margin-top: 80px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header id="inicio">
+        <div class="container header-container">
+            <div class="logo-container">
+                <!-- Logo placeholder - will be replaced with actual logo -->
+                <img src="./logo.png" alt="Performance Energia Solar Logo" class="logo">
+            </div>
+            <div class="header-text">
+                <h1>Chegou a Performance Energia Solar em Canindé!</h1>
+                <h2 style="text-align: center; margin: 0 auto; max-width: 800px;">Aproveite o Super Preço de Inauguração e economize até 95% na sua conta de luz!</h2>
+            </div>
+        </div>
+    </header>
+
+    <!-- Promotion Banner -->
+    <div class="promotion-banner">
+        <div class="container">
+            Promoções de 11/03 a 22/03! Não perca as ofertas especiais de inauguração!
+        </div>
+    </div>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2 class="section-title">Ofertas Especiais de Inauguração</h2>
+            <p style="text-align: center; margin-bottom: 30px; max-width: 800px; margin-left: auto; margin-right: auto;">
+                Aproveite nossos preços exclusivos de inauguração! Nunca foi tão fácil investir em energia solar com estas condições imperdíveis:
+            </p>
+            <div class="pricing-table">
+                <!-- Kit 4 Painéis -->
+                <div class="price-card">
+                    <h3 class="price-title">Kit 4 Painéis (300 KWH)</h3>
+                    <span class="old-price">De R$ 8.750,00</span>
+                    <div class="new-price">Por R$ 7.000,00</div>
+                    <div class="discount-tag">20% OFF</div>
+                    <ul class="price-features">
+                        <li>4 Painéis Solares de Alta Eficiência</li>
+                        <li>Produção mensal de 300 KWH</li>
+                        <li>Instalação inclusa</li>
+                        <li>Parcelamento em até 72x</li>
+                        <li>Economia imediata na conta de luz</li>
+                    </ul>
+                    <a href="https://wa.me/5588981717664?text=Tenho%20interesse%20no%20Kit%20de%204%20Painéis%20(300KWH)." class="btn">Quero este plano</a>
+                </div>
+
+                <!-- Kit 8 Painéis -->
+                <div class="price-card">
+                    <span class="popular">Mais vendido</span>
+                    <h3 class="price-title">Kit 8 Painéis (600 KWH)</h3>
+                    <span class="old-price">De R$ 14.280,00</span>
+                    <div class="new-price">Por R$ 11.000,00</div>
+                    <div class="discount-tag">23% OFF</div>
+                    <ul class="price-features">
+                        <li>8 Painéis Solares de Alta Eficiência</li>
+                        <li>Produção mensal de 600 KWH</li>
+                        <li>Instalação inclusa</li>
+                        <li>Parcelamento em até 72x</li>
+                        <li>Monitoramento pelo celular</li>
+                    </ul>
+                    <a href="https://wa.me/5588981717664?text=Tenho%20interesse%20no%20Kit%20de%208%20Painéis%20(600KWH)." class="btn">Quero este plano</a>
+                </div>
+
+                <!-- Kit 11 Painéis -->
+                <div class="price-card">
+                    <h3 class="price-title">Kit 11 Painéis (800 KWH)</h3>
+                    <span class="old-price">De R$ 18.500,00</span>
+                    <div class="new-price">Por R$ 15.000,00</div>
+                    <div class="discount-tag">19% OFF</div>
+                    <ul class="price-features">
+                        <li>11 Painéis Solares de Alta Eficiência</li>
+                        <li>Produção mensal de 800 KWH</li>
+                        <li>Instalação inclusa</li>
+                        <li>Parcelamento em até 72x</li>
+                        <li>Suporte técnico prioritário</li>
+                    </ul>
+                    <a href="https://wa.me/5588981717664?text=Tenho%20interesse%20no%20Kit%20de%2011%20Painéis%20(800KWH)." class="btn">Quero este plano</a>
+                </div>
+
+                <!-- Kit 14 Painéis -->
+                <div class="price-card">
+                    <h3 class="price-title">Kit 14 Painéis (1000 KWH)</h3>
+                    <span class="old-price">De R$ 19.500,00</span>
+                    <div class="new-price">Por R$ 16.900,00</div>
+                    <div class="discount-tag">13% OFF</div>
+                    <ul class="price-features">
+                        <li>14 Painéis Solares de Alta Eficiência</li>
+                        <li>Produção mensal de 1000 KWH</li>
+                        <li>Instalação inclusa</li>
+                        <li>Parcelamento em até 72x</li>
+                        <li>Monitoramento avançado</li>
+                    </ul>
+                    <a href="https://wa.me/5588981717664?text=Tenho%20interesse%20no%20Kit%20de%2014%20Painéis%20(1000KWH)." class="btn">Quero este plano</a>
+                </div>
+
+                <!-- Kit 20 Painéis -->
+                <div class="price-card">
+                    <h3 class="price-title">Kit 20 Painéis (1500 KWH)</h3>
+                    <span class="old-price">De R$ 29.500,00</span>
+                    <div class="new-price">Por R$ 23.000,00</div>
+                    <div class="discount-tag">22% OFF</div>
+                    <ul class="price-features">
+                        <li>20 Painéis Solares de Alta Eficiência</li>
+                        <li>Produção mensal de 1500 KWH</li>
+                        <li>Instalação inclusa</li>
+                        <li>Parcelamento em até 72x</li>
+                        <li>Sistema premium de monitoramento</li>
+                    </ul>
+                    <a href="https://wa.me/5588981717664?text=Tenho%20interesse%20no%20Kit%20de%2020%20Painéis%20(1500KWH)." class="btn">Quero este plano</a>
+                </div>
+
+                <!-- Kit 28 Painéis -->
+                <div class="price-card">
+                    <h3 class="price-title">Kit 28 Painéis (2000 KWH)</h3>
+                    <span class="old-price">De R$ 35.600,00</span>
+                    <div class="new-price">Por R$ 31.000,00</div>
+                    <div class="discount-tag">13% OFF</div>
+                    <ul class="price-features">
+                        <li>28 Painéis Solares de Alta Eficiência</li>
+                        <li>Produção mensal de 2000 KWH</li>
+                        <li>Instalação inclusa</li>
+                        <li>Parcelamento em até 72x</li>
+                        <li>Suporte VIP 24/7</li>
+                    </ul>
+                    <a href="https://wa.me/5588981717664?text=Tenho%20interesse%20no%20Kit%20de%2028%20Painéis%20(2000KWH)." class="btn">Quero este plano</a>
+                </div>
+
+                <!-- Kit 39 Painéis -->
+                <div class="price-card">
+                    <h3 class="price-title">Kit 39 Painéis (3000 KWH)</h3>
+                    <span class="old-price">De R$ 58.000,00</span>
+                    <div class="new-price">Por R$ 50.000,00</div>
+                    <div class="discount-tag">14% OFF</div>
+                    <ul class="price-features">
+                        <li>39 Painéis Solares de Alta Eficiência</li>
+                        <li>Produção mensal de 3000 KWH</li>
+                        <li>Instalação inclusa</li>
+                        <li>Parcelamento em até 72x</li>
+                        <li>Pacote comercial completo</li>
+                    </ul>
+                    <a href="https://wa.me/5588981717664?text=Tenho%20interesse%20no%20Kit%20de%2039%20Painéis%20(3000KWH)." class="btn">Quero este plano</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="benefits">
+        <div class="container">
+            <h2 class="section-title">Por que escolher energia solar?</h2>
+            <div class="benefits-container">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <h3 class="benefit-title">Economia de até R$ 4.800 por ano</h3>
+                    <p class="benefit-description">Reduza drasticamente sua conta de luz e economize milhares de reais anualmente com nossa solução de energia solar.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="benefit-title">Investimento seguro e rentável</h3>
+                    <p class="benefit-description">Retorno do investimento garantido em poucos anos, com durabilidade de mais de 30 anos do seu sistema solar.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3 class="benefit-title">Sustentabilidade real</h3>
+                    <p class="benefit-description">Contribua para um planeta mais limpo utilizando energia renovável e reduzindo sua pegada de carbono.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="benefit-title">Instalação rápida e garantida</h3>
+                    <p class="benefit-description">Equipe técnica especializada com instalação em poucos dias e suporte contínuo pós-venda.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <h3 class="benefit-title">Pagamento facilitado</h3>
+                    <p class="benefit-description">Financiamento em até 72x, sem burocracia e com as melhores condições do mercado.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Urgency Section -->
+    <section class="urgency">
+        <div class="container urgency-container">
+            <h2>Aproveite as condições imperdíveis da nossa inauguração!</h2>
+            <p>Só esta semana, descontos especiais e condições facilitadas! Oferta válida até 22/03.</p>
+            <div class="countdown">
+                Restam apenas:
+                <div class="countdown-timer">
+                    <div class="countdown-unit">
+                        <span class="countdown-number" id="days">11</span>
+                        <span class="countdown-label">Dias</span>
+                    </div>
+                    <div class="countdown-unit">
+                        <span class="countdown-number" id="hours">23</span>
+                        <span class="countdown-label">Horas</span>
+                    </div>
+                    <div class="countdown-unit">
+                        <span class="countdown-number" id="minutes">59</span>
+                        <span class="countdown-label">Minutos</span>
+                    </div>
+                    <div class="countdown-unit">
+                        <span class="countdown-number" id="seconds">59</span>
+                        <span class="countdown-label">Segundos</span>
+                    </div>
+                </div>
+            </div>
+            <a href="https://wa.me/5588981717664?text=Quero%20aproveitar%20a%20oferta%20de%20inauguração!" class="btn">Garanta seu Orçamento Gratuito</a>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title">O que dizem nossos clientes</h2>
+            <div class="testimonials-container">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        Instalei os painéis solares da Performance há 6 meses e já economizei mais de R$ 2.600 na conta de luz. O investimento está se pagando muito mais rápido do que eu imaginava!
+                    </p>
+                    <div class="testimonial-author">
+                        <img src="/api/placeholder/60/60" alt="Francisco Silva" class="author-image">
+                        <div class="author-info">
+                            <h4>Francisco Silva</h4>
+                            <p class="author-location">Canindé, CE</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        A equipe da Performance foi super profissional desde o orçamento até a instalação. Em 2 dias os painéis já estavam instalados e funcionando perfeitamente. Recomendo!
+                    </p>
+                    <div class="testimonial-author">
+                        <img src="/api/placeholder/60/60" alt="Maria Sousa" class="author-image">
+                        <div class="author-info">
+                            <h4>Maria Sousa</h4>
+                            <p class="author-location">Fortaleza, CE</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">
+                        Estava inseguro no início, mas a Performance me explicou todo o processo e me mostrou como o investimento valeria a pena. Hoje minha conta de luz é praticamente zero!
+                    </p>
+                    <div class="testimonial-author">
+                        <img src="/api/placeholder/60/60" alt="José Oliveira" class="author-image">
+                        <div class="author-info">
+                            <h4>José Oliveira</h4>
+                            <p class="author-location">Quixadá, CE</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Store Info Section -->
+    <section class="store-info">
+        <div class="container">
+            <h2 class="section-title">Visite nossa loja em Canindé</h2>
+            <div class="info-container">
+                <div class="info-text">
+                    <p>Venha conhecer nossa nova loja em Canindé e conversar com nossos especialistas em energia solar. Estamos prontos para tirar todas as suas dúvidas e ajudar você a começar a economizar hoje mesmo!</p>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="info-details">
+                            <h3>Nosso Endereço</h3>
+                            <p>Endereço: Rua Mozart Pinto, 183 - Centro, Canindé - CE</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="info-details">
+                            <h3>Horário de Funcionamento</h3>
+                            <p>Segunda a Sexta: 8h às 18h<br>Sábado: 8h às 12h</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="info-details">
+                            <h3>Telefone</h3>
+                            <p>(88) 98171-7664</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-image">
+                    <img src="/api/placeholder/500/400" alt="Loja Performance Energia Solar em Canindé">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer Styles -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-column">
+                <h4 class="footer-title">Performance Energia Solar</h4>
+                <p>Soluções completas em energia solar para sua casa ou empresa em Canindé e região.</p>
+                
+            </div>
+            <div class="footer-column">
+                <h4 class="footer-title">Links Rápidos</h4>
+                <ul class="footer-links">
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#pricing">Planos e Preços</a></li>
+                    <li><a href="#benefits">Benefícios</a></li>
+                    <li><a href="#testimonials">Depoimentos</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4 class="footer-title">Contato</h4>
+                <ul class="footer-links">
+                    <li><i class="fas fa-map-marker-alt"></i> Endereço: Rua Mozart Pinto, 183 - Centro, Canindé - CE</li>
+                    <li><i class="fas fa-phone"></i> (88) 98171-7664</li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2024 Performance Energia Solar. Todos os direitos reservados.
+        </div>
+    </footer>
+
+    <!-- Float WhatsApp Button -->
+    <a href="https://wa.me/5588981717664" class="float-whatsapp" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Define a data final (22 de março de 2025)
+        const endDate = new Date('2025-03-22T23:59:59').getTime();
+
+        // Atualiza o contador a cada segundo
+        const countdown = setInterval(() => {
+            // Data atual
+            const now = new Date().getTime();
+
+            // Diferença entre as datas
+            const distance = endDate - now;
+
+            // Cálculos de tempo
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Atualiza os elementos
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+
+            // Se o contador terminar
+            if (distance < 0) {
+                clearInterval(countdown);
+                document.querySelector('.countdown-timer').innerHTML = 'OFERTA ENCERRADA';
+            }
+        }, 1000);
+    });
+</script>
+</body>
+</html>
